@@ -9,19 +9,15 @@ public:
 	    int len = S.length();
         int i = 0;
         int j = len - 1;
-        if(len == 1)
-        {
+        if(len == 1){
            return 1;
         }
-        while(i <= j)
-        {
-            if (S[i] == S[j])
-            {
+        while(i <= j){
+            if (S[i] == S[j]){
                 i++;
                 j--;
             }
-            else
-            {
+            else{
                 return 0;
             }
         }
@@ -35,8 +31,7 @@ int main()
     cout.tie(NULL);
    	int t;
    	cin >> t;
-   	while(t--)
-   	{
+   	while(t--){
    		string s;
    		cin >> s;
    	    Solution ob;
