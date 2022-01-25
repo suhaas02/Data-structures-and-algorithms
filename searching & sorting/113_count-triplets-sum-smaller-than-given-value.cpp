@@ -39,18 +39,15 @@ class Solution{
             int j = i + 1, k = n - 1;
             while (j < k)
             {
-                if (arr[i] + arr[j] + arr[k] >= sum)
-                {
+                if (arr[i] + arr[j] + arr[k] >= sum) {
                     k--;
                 }
-                else
-                {
+                else{
                     count += (k - j);
                     j++;
                 }
                 
             }
-            
         }
         return count;
 	}

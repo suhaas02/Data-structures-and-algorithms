@@ -1,6 +1,5 @@
 //merge 2 sorted arrays without extra space
 //proble link: https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1#
-// { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 class Solution{
