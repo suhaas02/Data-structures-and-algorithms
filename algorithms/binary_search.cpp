@@ -1,44 +1,36 @@
-//binary search 
+//binary search algorithm
+//time complexity: O(logN)
 #include<bits/stdc++.h>
 using namespace std;
-int binarySearch(int arr[],int l, int r, int target)
+int binarySearch(int a[], int l, int r, int x)
 {
+    int mid;
     if (r >= l)
     {
-        int mid = l + (r - l)/2;
-
-        if (arr[mid] == target)
+        mid = l + (r - l)/2;
+        if (a[mid] == x)
         {
             return mid;
         }
-        if (arr[mid] > target)
+        if (a[mid] > x)
         {
-            return binarySearch(arr,1,mid - 1,target);
+            return binarySearch(a,l,mid - l, x);
         }
-        
-        return binarySearch(arr,mid + 1,r,target);
+        return binarySearch(a,mid + l,r,x);
     }
     return -1;
 }
 int main()
 {
-    int n,target; //size of tha array
+    int n;
     cin>>n;
     int arr[n];
     for (int i = 0; i < n; i++)
     {
         cin>>arr[i];
     }
-    cout<<"Enter the required element"<<endl;
+    int target;
     cin>>target;
-    int result = binarySearch(arr,0,n - 1, target);
-    if (result == -1)
-    {
-        cout<<"Required element is not present in the array"<<endl;
-    }
-    else
-    {
-        cout<<"Required element is present in the array at index:"<<result<<endl; 
-    }
-    return 0;
-} //time complexity: 0(logn);
+    int result = binarySearch(arr,0,n - 1,target);
+
+}
