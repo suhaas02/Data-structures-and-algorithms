@@ -78,6 +78,8 @@
 // }
 
 
+
+
 //anti palindrome
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -168,29 +170,29 @@
 // }
 
 //divisiors and reciprocals
-#include<bits/stdc++.h>
-using namespace std;
-int main()
-{
-    int t;
-    cin>>t;
-    while (t--)
-    {
-        int x,a,b;
-        cin>>x>>a>>b;
-        int rem = a % b;
-        int quo = a / b;
-        int n1 = rem/b;
-        if (rem != 0 && (b/rem) > quo)
-        {
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int t;
+//     cin>>t;
+//     while (t--)
+//     {
+//         int x,a,b;
+//         cin>>x>>a>>b;
+//         int rem = a % b;
+//         int quo = a / b;
+//         int n1 = rem/b;
+//         if (rem != 0 && (b/rem) > quo)
+//         {
             
-            cout<<(b/rem)<<endl;
-        }
-        else
-        {
-            cout<<"-1"<<endl;
-        }
+//             cout<<(b/rem)<<endl;
+//         }
+//         else
+//         {
+//             cout<<"-1"<<endl;
+//         }
         
-    }
-    return 0;
-}
+//     }
+//     return 0;
+// }
