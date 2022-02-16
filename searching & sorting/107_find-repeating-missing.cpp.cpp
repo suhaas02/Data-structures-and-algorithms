@@ -1,11 +1,10 @@
 //find missing and repeating element.cpp
 //problem link: https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
-// { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 class Solution{
 public:
-    int *findTwoElement(int *arr, int n) {
+     vector <int> findTwoElement(int *arr, int n) {
         vector <int> v;
         for (int i = 0; i < n; i++)
         {
