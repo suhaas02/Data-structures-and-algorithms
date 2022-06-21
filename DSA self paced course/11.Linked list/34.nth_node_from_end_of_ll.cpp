@@ -23,7 +23,7 @@ node *nthNode(node *head, int pos)
     while (curr -> next != NULL)
     {
         count++;
-    }
+    }   
     if (count < pos)
     {
         cout<<"NULL"<<endl;
