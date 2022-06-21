@@ -19,8 +19,21 @@ public:
         int secMax = -1;
         for (int i = 1; i < n; i++)
         {
+            if (arr[i] > max)
+            {
+                secMax = max;
+                max = arr[i];
+            }
+            else if (secMax < arr[i] && max > arr[i])
+            {
+                secMax = arr[i];
+            }
+            return secMax;
             
         }
+        
+        
+        
         
 	}
 };
