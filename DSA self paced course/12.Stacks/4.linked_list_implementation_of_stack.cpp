@@ -25,8 +25,12 @@ struct myStack
     }
     void push(int x)
     {
-        node *temp = new node(x);
-        temp -> next = head;
+        node *temp =  new node(x);;
+        if (head != NULL)
+        {
+            temp -> next = head;
+        }
+        head = temp;
         sz ++;
     }
     int pop()
@@ -75,3 +79,6 @@ int main()
     cout<<v.isEmpty()<<endl;
     return 0;
 }
+
+
+
