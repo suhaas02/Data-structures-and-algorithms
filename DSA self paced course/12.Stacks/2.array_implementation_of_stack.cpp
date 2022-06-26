@@ -80,15 +80,4 @@ struct myStack
     }
 };
 
-int main()
-{
-    myStack v ;
-    v.push(10);
-    v.push(20);
-    v.push(30);
-    cout<<v.pop()<<endl;
-    cout<<v.size()<<endl;
-    cout<<v.peek()<<endl;
-    cout<<v.isEmpty()<<endl;
-    return 0;
-}
+ 
