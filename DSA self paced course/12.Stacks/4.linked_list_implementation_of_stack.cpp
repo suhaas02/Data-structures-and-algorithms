@@ -25,7 +25,7 @@ struct myStack
     }
     void push(int x)
     {
-        node *temp =  new node(x);;
+        node *temp =  new node(x);
         if (head != NULL)
         {
             temp -> next = head;
