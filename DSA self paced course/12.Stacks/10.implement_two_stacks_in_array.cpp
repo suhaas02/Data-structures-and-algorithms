@@ -3,7 +3,7 @@
 struct twoStacks
 {
     int *arr;
-    int cap, t  op1, top2;
+    int cap, top1, top2;
     twoStacks(int n)
     {
         cap = n;
