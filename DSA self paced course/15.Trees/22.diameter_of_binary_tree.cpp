@@ -54,7 +54,7 @@ int diameter(node *root)
     int lh = diameter(root -> left);
     int rh = diameter(root -> right);
     res = max(res,1 + rh + lh);
-    return (1 + max(lh + rh));
+    return (1 + max(lh , rh));
 }
 
 
