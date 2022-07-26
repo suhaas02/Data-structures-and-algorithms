@@ -23,7 +23,7 @@ node *ceil(node *root,int x)
         {
             return root;
         }
-        else if (root -> key < x)
+        else if (x > root -> key)
         {
             root = root -> right;
         }
