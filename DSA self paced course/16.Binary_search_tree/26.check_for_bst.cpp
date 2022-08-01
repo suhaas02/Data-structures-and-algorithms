@@ -29,10 +29,21 @@ struct node
 
 //2nd approach
 //inorder traversal
-bool isBst(node *root,int min,int max)
-{
+// int prev = INT_MIN;
+int prevv=INT_MIN;
+bool isBst(node* root)  
+{  
+    if (root == NULL)  
+        return true;  
     
+    if(isBst(root->left)==false)return false;
+    
+    if(root->key<=prevv)return false;
+    prevv=root->key;
+    
+    return isBst(root->right);
 }
+
 
 int main() {
 	
@@ -43,11 +54,17 @@ int main() {
 	root->right->left=new node(18);
 	root->right->left->left=new node(16);
 	root->right->right=new node(80);
-	if(isBst(root,INT_MIN,INT_MAX))  
+	//for approach - 1
+    // if(isBst(root,INT_MIN,INT_MAX))  
+    //     cout<<"Is BST";  
+    // else
+    //     cout<<"Not a BST";  
+	
+    //for approach - 2
+    if(isBst(root))  
         cout<<"Is BST";  
     else
         cout<<"Not a BST";  
-	
 	return 0;
 }
 
