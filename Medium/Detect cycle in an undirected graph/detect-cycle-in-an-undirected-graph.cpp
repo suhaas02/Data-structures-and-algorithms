@@ -6,6 +6,8 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
+    
+    //this one is done using bfs approach 
     bool detectCycle(int start, vector<int> adj[], vector<int> &vis)
     {
         vis[start] = 1;
