@@ -46,7 +46,6 @@ public:
         }
         if(topo.size() == V)
             return topo;
-        topo.clear();
-        return topo;
+        return {};
     }
 };
