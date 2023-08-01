@@ -1,7 +1,7 @@
 
 class Solution {
 public:
-    void helper(int i, int n, int k,vector<vector<int>> &ans, vector<int> &temp, vector<int> &nums)
+    void helper(int i, int n, int k,vector<vector<int>> &ans, vector<int> &temp)
     {
         if(i > n)
             return;
@@ -13,18 +13,14 @@ public:
         for(int j = i; j < n; j++)
         {
             temp.push_back(j + 1);
-            helper(j + 1, n, k,ans, temp, nums);
+            helper(j + 1, n, k,ans, temp);
             temp.pop_back();
         }
     }
     vector<vector<int>> combine(int n, int k) {
         vector<vector<int>> ans;
-        vector<int> temp, nums;
-        for(int i=0;i<n;i++)
-        {
-            nums.push_back(i + 1);
-        }
-        helper(0, n, k, ans, temp, nums);
+        vector<int> temp;
+        helper(0, n, k, ans, temp);
         return ans;
     }
 };
