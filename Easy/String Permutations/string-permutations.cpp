@@ -6,34 +6,38 @@ using namespace std;
 class Solution{
     public:
     //Complete this function
-    void solve(int i,string& s,string& ds,vector<string>& res){
-    if(i == s.length()){
-        res.emplace_back(ds);
-        return;
-    }
-    
-    for(int j=i;j<s.length();j++){
-        ds += s[j];
+    void helper(string s, vector<string> &ans, string out, vector<int> &vis)
+    {
+        if(out.length() == s.length())
+        {
+            ans.push_back(out);
+            return;
+        }
         
-        swap(s[i],s[j]);
-        solve(i+1,s,ds,res);
-        swap(s[i],s[j]);
-        
-        ds.pop_back();
+        for(int i = 0; i < s.length(); i++)
+        {
+            if(vis[i] == 0)
+            {
+                vis[i] = 1;
+                out = out + s[i];
+                helper(s, ans, out, vis);
+                out.pop_back();
+                vis[i] = 0;
+            }
+            // out.pop_back();
+            // helper()
+        }
     }
-}
-
-//Complete this function
-vector<string> permutation(string S){
-    //Your code here
-    string ds;
-    vector<string> res;
-    
-    solve(0,S,ds,res);
-    sort(res.begin(),res.end());
-    
-    return res;
-}
+    vector<string> permutation(string S)
+    {
+        //Your code here
+        vector<string> ans;
+        vector<int> vis(S.length(), 0);
+        string out;
+        helper(S, ans, out, vis);
+        sort(ans.begin(),ans.end());
+        return ans;
+    }
 };
 
 //{ Driver Code Starts.
