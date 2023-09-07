@@ -11,47 +11,23 @@
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int left, int right) {
-        if(left == right)
+        if(head == NULL)
             return head;
-        //approach - 1 // taking extra space and solving the problem
-        vector<int> values;
-        int x = right - left + 1;
-        int tl = left - 1;
-        ListNode *leftPtr = head;
-        while(tl--)
+        ListNode* dummy = new ListNode(0);
+        dummy -> next = head;
+        ListNode* prev = dummy;
+        for(int i = 0; i < left - 1; i++)
         {
-            leftPtr = leftPtr -> next;
+            prev = prev -> next;
         }
-        cout<<leftPtr -> val<<endl;
-        ListNode *temp = leftPtr;
-        while(temp != NULL && x--)
+        ListNode* curr = prev -> next;
+        for(int i = 0; i < right - left; i++)
         {
-            values.push_back(temp -> val);
-            temp = temp -> next;
+            ListNode* next = curr -> next;
+            curr -> next = next -> next;
+            next -> next = prev -> next;
+            prev -> next = next;
         }
-        for(auto x : values)
-            cout<<x<<" ";
-        cout<<endl;
-        reverse(values.begin(),values.end());
-        int i = 0;
-        while(i < values.size())
-        {
-            leftPtr -> val = values[i];
-            i++;
-            leftPtr = leftPtr -> next;
-        }
-        return head;
-
-        //approach - 2 //without taking extraspace
-        // Node* temp = head;
-        // Node* l = NULL, *r = NULL;
-        
-        // //first i will find the left and right address
-        // while(temp != NULL)
-        // {
-
-        // }
-        
-
+        return dummy -> next;
     }
 };
