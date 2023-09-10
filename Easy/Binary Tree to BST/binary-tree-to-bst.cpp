@@ -111,33 +111,32 @@ class Solution{
   public:
     // The given root is the root of the Binary Tree
     // Return the root of the generated BST
-    void traversal(Node*root,vector<int>&ans){
-        if(root==NULL){
+    void inorder(Node* root, vector<int> &ans)
+    {
+        if(root == NULL)
             return;
-        }
-        traversal(root->left,ans);
-        ans.push_back(root->data);
-        traversal(root->right,ans);
-        
+        inorder(root -> left, ans);
+        ans.push_back(root -> data);
+        inorder(root -> right, ans);
     }
-    // vector to tree
-    void convert(Node* root,vector<int>&ans,int &i){
-        if(root==NULL){
+    void helper(Node* root, vector<int> &ans, int &i)
+    {
+        if(root == NULL)
             return;
-        }
-        convert(root->left,ans,i);
-        root->data=ans[i];
+        helper(root -> left, ans, i);
+        root -> data = ans[i];
         i++;
-        convert(root->right,ans,i);
-        
+        helper(root -> right, ans, i);
     }
     Node *binaryTreeToBST (Node *root)
     {
-        vector<int>ans;
-        traversal(root,ans);
-        sort(ans.begin(),ans.end());
-        int i=0;
-        convert(root,ans,i);
+        //Your code goes here
+        vector<int> ans;
+        inorder(root, ans);
+        sort(ans.begin(), ans.end());
+        //now i need to insert all the nodes in the vector back to the tree so that it wll become a bst
+        int i = 0;
+        helper(root, ans, i);
         return root;
     }
 };
