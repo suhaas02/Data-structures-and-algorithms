@@ -9,6 +9,7 @@ public:
             mp[s[j]]++;
             while(mp.size() == 3)
             {
+                //here we are doing s.length() - j, because consider abcabc, we are at index 3, as the i pointer is not moving, so n - j gives the number of possible substrings
                 count += s.length() - j;  
                 mp[s[i]]--;
                 if(mp[s[i]] == 0)
