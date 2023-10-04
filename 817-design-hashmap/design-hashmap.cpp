@@ -1,22 +1,47 @@
 class MyHashMap {
 public:
-    unordered_map<int,int> ans;
+    vector<vector<int>> vec;
     MyHashMap() {
         
     }
     
     void put(int key, int value) {
-        ans[key] = value;
+        vector<int> temp;
+        temp.push_back(key);
+        temp.push_back(value);
+        int flag = 0;
+        for(int i = 0; i < vec.size(); i++)
+        {
+            if(vec[i][0] == key)
+            {
+                flag = 1;
+                vec[i][1] = value;
+            }
+        }
+        if(flag == 0)
+            vec.push_back(temp);
     }
     
     int get(int key) {
-        if(ans.find(key) != ans.end())
-            return ans[key];
+        for(int i = 0; i < vec.size(); i++)
+        {
+            if(vec[i][0] == key)
+            {
+               return vec[i][1];
+            }
+        }
         return -1;
     }
     
     void remove(int key) {
-        ans.erase(key);
+        for(int i = 0; i < vec.size(); i++)
+        {
+            if(vec[i][0] == key)
+            {
+                vec[i][1] = -1;
+                break;
+            }
+        }
     }
 };
 
