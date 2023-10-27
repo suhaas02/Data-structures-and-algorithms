@@ -1,24 +1,34 @@
 class Solution {
 public:
     int minimumSum(vector<int>& nums) {
-        int sum = INT_MAX;
+        //efficient approach 
+        int sum = 0;
+        int minSum = INT_MAX;
         int n = nums.size();
-        for(int i = 0; i < n; i++)
+        vector<int> left(n, 0), right(n, 0);
+        left[0] = nums[0];
+        for(int i = 1; i < n; i++)
         {
-            for(int j = i + 1; j < n; j++)
+            left[i] = min(left[i - 1], nums[i]);
+        }
+
+        //similarly for right
+        right[n - 1] = nums[n - 1];
+        for(int i = n - 2; i >= 0; i--)
+        {
+            right[i] = min(right[i + 1], nums[i]);
+        }
+
+        for(int i = 1; i < n - 1; i++)
+        {
+            if(nums[i] > left[i] and nums[i] > right[i])
             {
-                for(int k = j + 1; k < n; k++)
-                {
-                    if(nums[i] < nums[j] and nums[k] < nums[j] and nums[i] + nums[j] + nums[k] < sum)
-                    {
-                       sum = nums[i] + nums[j] + nums[k]; 
-                       cout<<nums[i]<<" "<<nums[j]<<" "<<nums[k]<<endl;
-                    }
-                }
+                sum = left[i] + right[i] + nums[i];
+                minSum = min(minSum, sum);
             }
         }
-        if(sum == INT_MAX)
+        if(minSum == INT_MAX)
             return -1;
-        return sum;
+        return minSum;
     }
 };
