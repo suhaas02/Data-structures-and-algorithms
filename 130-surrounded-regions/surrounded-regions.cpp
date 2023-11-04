@@ -25,11 +25,11 @@ public:
         //rows traversal
         for(int i = 0; i < m; i++)
         {
-            if(!vis[0][i] and board[0][i] == 'O')
+            if(board[0][i] == 'O')
             {
                 dfs(board, vis, 0, i, n, m);
             }
-            if(!vis[n - 1][i] and board[n - 1][i] == 'O')
+            if(board[n - 1][i] == 'O')
             {
                 dfs(board, vis, n - 1, i, n, m);
             }
