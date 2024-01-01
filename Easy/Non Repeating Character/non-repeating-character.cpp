@@ -12,17 +12,23 @@ class Solution
     char nonrepeatingCharacter(string S)
     {
        //Your code here
-       unordered_map<char,int> freq;
-       for(auto x : S)
-       {
-           freq[x]++;
-       }
+       unordered_map<char,int> mp;
        for(int i = 0; i < S.length(); i++)
        {
-           if(freq[S[i]] == 1)
-                return S[i];
+           mp[S[i]]++;
        }
-       return '$';
+    //   for(auto x : mp)
+    //   {
+    //       cout << x.first << " " << x.second << endl;
+    //   }
+    //   return S[0];
+        for(int i = 0; i < S.length(); i++)
+        {
+            if(mp[S[i]] == 1)
+                return S[i];
+            
+        }
+        return '$';
        
     }
 
