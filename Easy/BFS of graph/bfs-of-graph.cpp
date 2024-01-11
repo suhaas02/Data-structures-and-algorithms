@@ -10,15 +10,15 @@ class Solution {
         // Code here
         queue<int> q;
         vector<int> vis(V, 0);
-        vector<int> ans;
-        q.push(0);
         vis[0] = 1;
+        q.push(0);
+        vector<int> bfs;
         while(!q.empty())
         {
-            int top = q.front();
+            int first = q.front();
             q.pop();
-            ans.push_back(top);
-            for(auto it : adj[top])
+            bfs.push_back(first);
+            for(auto it : adj[first])
             {
                 if(!vis[it])
                 {
@@ -27,7 +27,7 @@ class Solution {
                 }
             }
         }
-        return ans;
+        return bfs;
     }
 };
 
