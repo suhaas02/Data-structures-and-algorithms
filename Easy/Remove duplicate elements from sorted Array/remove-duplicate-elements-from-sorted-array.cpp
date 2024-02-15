@@ -10,17 +10,21 @@ using namespace std;
 
 class Solution{
 public:
-    int remove_duplicate(int A[],int N){
+    int remove_duplicate(int a[],int n){
         // code here
-         int result=1;
-        for(int i=1;i<N;i++){
-            if(A[result-1]!=A[i]){
-                A[result]=A[i];
-                result++;
+        int i = 0, j = 1;
+        while(j < n)
+        {
+            if(a[i] != a[j])
+            {
+                a[i + 1] = a[j];
+                i++;
+                j++;
             }
+            else
+                j++;
         }
-        return result;
-        
+        return i + 1;
     }
 };
 
