@@ -27,20 +27,19 @@ int main() {
 
 
 vector<int> minAnd2ndMin(int a[], int n) {
-    set<int> st(a, a + n);
-    int count = 2;
-    if(n < 2 or st.size() == 1)
-        return {-1, -1};
-    vector<int> ans;
-    for(auto x : st)
+    int first = INT_MAX;
+    for(int i = 0;i < n; i++)
     {
-        if(count != 0)
-        {
-            ans.push_back(x);
-            count--;
-        }
-        else
-            break;
+        if(a[i] < first)
+            first = a[i];
     }
-    return ans;
+    int second = INT_MAX;
+    for(int i = 0; i < n; i++)
+    {
+        if(second > a[i] and a[i] != first)
+            second = a[i];
+    }
+    if(second == INT_MAX)
+        return {-1};
+    return {first, second};
 }
