@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/number-of-factors1435/1">Number of factors</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Find the number of factors for a given integer <strong>N</strong>.</span><br>
+<h2><a href="https://www.geeksforgeeks.org/problems/number-of-factors1435/1">Number of factors</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Find the number of factors for a given integer <strong>N</strong>.</span><br>
 &nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
